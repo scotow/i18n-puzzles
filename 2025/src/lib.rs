@@ -3,10 +3,11 @@ macro_rules! main {
     () => {
         #[allow(unused_import)]
         use {
+            deunicode::deunicode,
             itertools::Itertools,
             jiff::{
                 SignedDuration, Span, Timestamp, Zoned,
-                civil::{Date, date},
+                civil::{Date, date, datetime, time},
                 tz::{Offset, TimeZone},
             },
             std::cmp::Ordering,
@@ -19,6 +20,7 @@ macro_rules! main {
             std::ops::{Add, BitAnd, BitOr, BitXor, Div, Mul, Range, RangeInclusive, Sub},
             std::rc::Rc,
             std::str::{FromStr, from_utf8},
+            unicode_normalization::{Decompositions, char::compose},
         };
 
         fn main() {
